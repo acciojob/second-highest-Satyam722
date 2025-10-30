@@ -5,7 +5,7 @@
 <body>
   <script>
     function secondHighest(arr) {
-      if (arr.length < 2) return null;
+      if (arr.length < 2) return -Infinity;
 
       let highest = -Infinity;
       let second = -Infinity;
@@ -18,23 +18,30 @@
           second = arr[i];
         }
       }
+
+      // If second highest never updated, it means all elements are same
+      if (second === -Infinity) return -Infinity;
+
       return second;
     }
 
     function Main() {
-      var n = prompt("Enter the number of elements"); // Cypress stubs this
+      var n = Number(prompt("Enter the number of elements")); // Cypress stubs this
       var arr = [];
 
       for (var i = 0; i < n; i++) {
         arr[i] = Number(prompt("Enter element " + (i + 1))); // Cypress provides these too
       }
 
-      // ✅ Important: alert only the number, no text!
+      // ✅ Important: alert only the number (no extra text)
       alert(secondHighest(arr));
     }
 
     Main();
   </script>
+</body>
+</html>
+
 </body>
 </html>
 
